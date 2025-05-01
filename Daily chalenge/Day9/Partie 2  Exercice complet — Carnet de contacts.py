@@ -65,22 +65,22 @@ while True:
     elif option == 4:
         for i, items in enumerate(contacts, 1):
             print(f"{i}.{items}")
-
-        with open('Daily chalenge\Day9\contacts.txt',"r", encoding="utf-8") as file:
-            print("Aucun contact enregistre")
-            chx = input("\nSouhaiter vous l'ajouter?(Oui/Non)")
-            if chx == "Oui":
-                add_nom = input("Entrez le nom de la personne: ")
-                add_cont = input("Entrez le contact sous ce format: xx-xx-xx-xx")
-                contacts[f"{add_nom}"] = add_cont
-                with open('Daily chalenge\Day9\contacts.txt',"a", encoding="utf-8") as file:
-                    file.write(add_nom +":"+ contacts[f"{add_nom}"] + "\n")
-                    print("Contact ajoute")
-            elif chx == "non":
-                print("Operation annulee")
-
-            else:
-                print("Veuillez choisir entre Oui ou Non s'il vous plait")
+        if not contacts:
+            with open('Daily chalenge\Day9\contacts.txt',"r", encoding="utf-8") as file:
+                print("Aucun contact enregistre")
+                chx = input("\nSouhaiter vous l'ajouter?(Oui/Non)")
+                if chx == "Oui":
+                    add_nom = input("Entrez le nom de la personne: ")
+                    add_cont = input("Entrez le contact sous ce format: xx-xx-xx-xx")
+                    contacts[f"{add_nom}"] = add_cont
+                    with open('Daily chalenge\Day9\contacts.txt',"a", encoding="utf-8") as file:
+                        file.write(add_nom +":"+ contacts[f"{add_nom}"] + "\n")
+                        print("Contact ajoute")
+                elif chx == "non":
+                    print("Operation annulee")
+    
+                else:
+                    print("Veuillez choisir entre Oui ou Non s'il vous plait")
 
     
     elif option == 5:
